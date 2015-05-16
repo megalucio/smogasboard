@@ -63,11 +63,16 @@
 		};
 
 		
-		//TODO: Improve this function to draw:
-		//	1. The actual state of the board
-		//  2. The dice roll animation
-		//	3. Then a new animation simulating the player movement form box to box ending up in the resulting position
-		//  Integrate all of this with the setTimeout and setInterval inside. May be woth looking into how to wrap this functions for a cleaner implementation.
+		/*TODO: Improve this function to draw:
+		1. The actual state of the board
+		2. The dice roll animation
+		3. Then a new animation simulating the player movement form box to box 
+		ending up in the resulting position
+		
+		Integrate all of this with the setTimeout and setInterval inside. 
+		May be woth looking into how to wrap this functions for a 
+		cleaner implementation.
+		*/
 		function drawGameStatus(roll, positions) {
 			//draw board
 			boardLayerContext.drawImage(boardImage, 0, 0, 900, 600);
