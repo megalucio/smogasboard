@@ -40,9 +40,13 @@
 
 		boardImage.onload = function() {
 			
-			//Menu
-			boardLayerContext.drawImage(coverImage, 0, 0, 900, 600);
-			numPlayers = prompt("Numero de jugadores?");
+			
+			//numPlayers is extractyed from the URL parameter but if non existant the default is 4.
+			if(window.location.search.match(/(\?|&)numPlayers=([^&]*)/)!= null){
+				numPlayers = decodeURIComponent(window.location.search.match(/(\?|&)numPlayers=([^&]*)/)[2]);
+			}else{
+				numPlayers = 4;
+			}
 			
 			drawGameStatus(0, positions);
 			
@@ -52,19 +56,20 @@
 			// game loop
 
 			roll = rollDice();
-			turn = nextTurn(turn);
+			
 			positions[turn - 1] += roll;
 			console.log("positions: " + positions);
-
-			drawGameStatus(roll, positions);			
+			
 			var animation = setInterval(function () {drawNextFrame(0, 0, diceframe);}, 100);
-			setTimeout(function(){clearInterval(animation);drawGameStatus(roll, positions);},1000)
+			setTimeout(function(){clearInterval(animation);drawGameStatus(roll, positions);},1000);
+
+			turn = nextTurn(turn);
 		
 		};
 
 		
 		/*TODO: Improve this function to draw:
-		1. The actual state of the board
+		1. The actual state of the board --> Done
 		2. The dice roll animation
 		3. Then a new animation simulating the player movement form box to box 
 		ending up in the resulting position
@@ -72,6 +77,10 @@
 		Integrate all of this with the setTimeout and setInterval inside. 
 		May be woth looking into how to wrap this functions for a 
 		cleaner implementation.
+
+		Also, gonna need to inactivate mouse click event while a turn is taking 
+		place to avoid interaction error.
+
 		*/
 		function drawGameStatus(roll, positions) {
 			//draw board

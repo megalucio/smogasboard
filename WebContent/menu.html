@@ -1,0 +1,68 @@
+<style type="text/css">
+
+#coolmenu{
+
+border: 1px solid black;
+width: 170px;
+background-color: #E6E6E6;
+position:absolute;
+left:0;
+right:1000;
+top:200;
+margin-left:auto;
+margin-right:auto;
+background-image: url(images/cover.png);
+}
+
+#coolmenu a{
+font: bold 13px Verdana;
+padding: 2px;
+padding-left: 4px;
+display: block;
+width: 100%;
+color: black;
+text-decoration: none;
+border-bottom: 1px solid black;
+}
+
+#coolmenu a{ /*Non IE rule*/
+width: auto;
+}
+
+#coolmenu a:hover{
+background-color: black;
+color: white;
+}
+
+#coolmenu text{
+font: bold 13px Verdana;
+padding: 2px;
+padding-left: 4px;
+display: block;
+width: 100%;
+color: black;
+text-decoration: none;
+border-bottom: 1px solid black;
+}
+
+#coolmenu text{ /*Non IE rule*/
+width: auto;
+}
+
+#coolmenu text:hover{
+background-color: black;
+color: white;
+cursor: hand;
+
+}
+
+</style>
+
+<div id="coolmenu">
+    <a href="main.html?numPlayers=2">2 Players</a>
+    <a href="main.html?numPlayers=3">3 Players</a>
+    <a href="main.html?numPlayers=4">4 Players</a>
+    <text onclick="alert('click 1')">2 Players</text>
+    <text onclick="alert('click 2')">3 Players</text>
+    <text onclick="alert('click 3')">4 Players</text>
+</div>
